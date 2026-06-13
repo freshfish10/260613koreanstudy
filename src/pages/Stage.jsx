@@ -35,7 +35,7 @@ const Stage = () => {
   if (!currentQuestion || isGameOver) {
     return (
       <div className={styles.stageOverlay}>
-        <div className={`${styles.resultModal} glass-panel`}>
+        <div className={styles.resultModal}>
           <ShieldAlert size={64} className={styles.gameOverIcon} />
           <h2>앗! 체력이 모두 소진되었습니다.</h2>
           <p>틀린 문제를 다시 복습하고 재도전 해보세요!</p>
@@ -48,7 +48,7 @@ const Stage = () => {
   if (isStageClear) {
     return (
       <div className={styles.stageOverlay}>
-        <div className={`${styles.resultModal} glass-panel ${styles.clearModal}`}>
+        <div className={`${styles.resultModal} ${styles.clearModal}`}>
           <div className={styles.particles}></div>
           <h2>스테이지 클리어! 🎉</h2>
           <p>대단해요! {stageInfo.title} 단원을 완벽하게 마스터했습니다.</p>
@@ -152,7 +152,7 @@ const Stage = () => {
       </div>
 
       {isAnswered && (
-        <div className={`${styles.feedbackPanel} ${feedback === 'correct' ? styles.feedbackCorrect : styles.feedbackWrong} glass-panel`}>
+        <div className={`${styles.feedbackPanel} ${feedback === 'correct' ? styles.feedbackCorrect : styles.feedbackWrong}`}>
           <h3>{feedback === 'correct' ? '정답입니다! 🎉' : '아쉽네요! 😢'}</h3>
           <p>{currentQuestion.feedback}</p>
           <button className="btn" onClick={handleNext}>

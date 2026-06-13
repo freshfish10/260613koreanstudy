@@ -9,7 +9,7 @@ const CharacterStatus = () => {
   const expPercentage = (exp / 100) * 100;
 
   return (
-    <div className={`${styles.statusContainer} glass-panel`}>
+    <div className={styles.statusContainer}>
       <div className={styles.levelBadge}>
         <span className={styles.levelText}>LV.{level}</span>
       </div>

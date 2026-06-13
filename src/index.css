@@ -1,15 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Noto+Sans+KR:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 :root {
-  --primary-color: #6366f1;
-  --secondary-color: #ec4899;
-  --bg-dark: #0f172a;
-  --bg-card: #1e293b;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --accent: #facc15;
-  --health: #ef4444;
-  --success: #22c55e;
+  --primary-color: #76b900;
+  --primary-dark: #5a8d00;
+  --bg-canvas: #ffffff;
+  --surface-dark: #000000;
+  --surface-soft: #f7f7f7;
+  --surface-elevated: #1a1a1a;
+  --hairline: #cccccc;
+  --hairline-strong: #5e5e5e;
+  --text-main: #000000;
+  --text-body: #1a1a1a;
+  --text-muted: #757575;
+  --text-on-dark: #ffffff;
+  --text-on-dark-mute: rgba(255, 255, 255, 0.7);
+  --error: #e52020;
+  --success: #3f8500;
 }
 
 * {
@@ -19,11 +25,12 @@
 }
 
 body {
-  font-family: 'Outfit', 'Noto Sans KR', sans-serif;
-  background-color: var(--bg-dark);
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: var(--bg-canvas);
   color: var(--text-main);
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .app-container {
@@ -40,35 +47,60 @@ body {
   overflow: hidden;
 }
 
-/* Glassmorphism utils */
-.glass-panel {
-  background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+/* NVIDIA Utilities */
+.corner-square {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-color);
+  z-index: 10;
 }
 
 /* Base button styles */
 .btn {
-  background: linear-gradient(135deg, var(--primary-color), #818cf8);
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--text-on-dark);
   border: none;
-  padding: 12px 24px;
-  border-radius: 9999px;
+  padding: 11px 24px;
+  border-radius: 2px;
   font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease;
   font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+.btn:hover, .btn:active {
+  background-color: var(--primary-dark);
 }
 
-.btn:active {
-  transform: translateY(1px);
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 2px solid var(--primary-color);
+  padding: 11px 13px;
+  border-radius: 2px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-outline:hover {
+  background-color: rgba(118, 185, 0, 0.1);
+}
+
+.card {
+  background-color: var(--bg-canvas);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  position: relative;
 }
