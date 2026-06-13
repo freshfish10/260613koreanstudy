@@ -1,0 +1,256 @@
+.stageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.backBtn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.progressBarContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 20px;
+}
+
+.progressBar {
+  flex: 1;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--success);
+  transition: width 0.3s ease;
+}
+
+.progressBarContainer span {
+  font-weight: bold;
+  color: var(--text-muted);
+}
+
+.questionArea {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.stageTitleBadge {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+
+.questionText {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.4;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.optionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.optionBtn {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  color: white;
+  font-size: 1.1rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  text-align: left;
+}
+
+.optionBtn:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.optionIndex {
+  background: rgba(255, 255, 255, 0.1);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.optionText {
+  flex: 1;
+}
+
+.resultIcon {
+  margin-left: auto;
+}
+
+.correctOption {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: var(--success);
+  color: white;
+}
+
+.correctOption .optionIndex {
+  background: var(--success);
+}
+
+.wrongOption {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: var(--health);
+  color: white;
+}
+
+.wrongOption .optionIndex {
+  background: var(--health);
+}
+
+.feedbackPanel {
+  margin-top: 30px;
+  padding: 25px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.feedbackPanel h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.feedbackPanel p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.feedbackCorrect {
+  border-top: 4px solid var(--success);
+}
+
+.feedbackWrong {
+  border-top: 4px solid var(--health);
+}
+
+.stageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+
+.resultModal {
+  padding: 40px;
+  border-radius: 24px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gameOverIcon {
+  color: var(--health);
+}
+
+.clearModal h2 {
+  color: #fbbf24;
+  font-size: 2rem;
+}
+
+.rewards {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.rewardItem {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  color: #fbbf24;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 640px) {
+  .questionText {
+    font-size: 1.5rem;
+  }
+  .optionBtn {
+    padding: 15px;
+    font-size: 1rem;
+  }
+}
